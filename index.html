@@ -6,9 +6,9 @@
     <title>Jonathan Xu</title>
     <style>
         .publication {
-            margin-left: 20px;
-            text-indent: -40px;
-            padding-left: 20px;
+            margin: 0 0 14px 0;
+            text-indent: 0;
+            padding-left: 0;
         }
         /* Minimalist typography inspired by Jason Wei's site */
         html, body {
@@ -23,6 +23,7 @@
             font-weight: 600;
             letter-spacing: -0.01em;
             margin: 0 0 8px 0;
+            font-size: clamp(22px, 4vw, 32px);
         }
         h4 {
             margin: 28px 0 8px 0;
@@ -30,16 +31,19 @@
         }
         a {
             color: #111;
-            text-decoration: none;
-            border-bottom: 1px solid #e5e5e5;
-            transition: border-color 120ms ease;
+            text-decoration: underline;
+            text-decoration-color: #dcdcdc;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+            transition: color 120ms ease, text-decoration-color 120ms ease;
         }
-        a:hover {
-            border-bottom-color: #111;
-        }
+        a:hover { text-decoration-color: #111; }
+        a:focus-visible { outline: 2px solid #999; outline-offset: 2px; }
         section {
             margin-top: 18px;
         }
+        /* Subtle section dividers */
+        section + section { border-top: 1px solid #f0f0f0; padding-top: 16px; }
         /* Writing list */
         #writing ul {
             list-style: none;
@@ -50,20 +54,27 @@
             margin: 6px 0;
         }
         /* Keep publication links consistent */
-        .publication a { border-bottom-color: #dcdcdc; }
-        .publication a:hover { border-bottom-color: #111; }
+        .publication a { text-decoration-color: #dcdcdc; }
+        .publication a:hover { text-decoration-color: #111; }
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            html, body { background: #0e0e0e; color: #e7e7e7; }
+            a { color: #e7e7e7; text-decoration-color: #4a4a4a; }
+            a:hover { text-decoration-color: #e7e7e7; }
+            section + section { border-top-color: #1f1f1f; }
+        }
     </style>
 </head>
-<body style="max-width: 700px; margin: 0 auto; padding-left: 10px; padding-right: 10px; padding-top: 20px; padding-bottom: 20px;">
+<body style="max-width: 680px; margin: 0 auto; padding-left: 10px; padding-right: 10px; padding-top: 40px; padding-bottom: 20px;">
     <header>
         <h1>Jonathan Xu</h1>
     </header>
     <main>
         <section id="introduction">
-            <p>I am a junior at the Wharton School studying statistics and pursuing a concurrent master's in computer science. I am particularly interested in the intersection of AI and healthcare/precision medicine, as well as how to develop autonomous AI systems that can generate novel insights for scientific discovery.
+            <p>I am a senior at the Wharton School studying statistics and pursuing a concurrent master's in computer science. I am particularly interested in the intersection of AI and healthcare/precision medicine, as well as how to develop autonomous AI systems that can generate novel insights for scientific discovery.
             <br/>
             <br/>
-            I am very fortunate to be advised by several incredible mentors: Professor <a href="https://zhihuang.ai">Zhi Huang</a> in the Department of Pathology & Laboratory Medicine at Penn Medicine, Professor <a href="https://statistics.wharton.upenn.edu/profile/nzh/">Nancy Zhang</a> in the Department of Statistics at Wharton, and Professor <a href="https://chibe.upenn.edu/expert/kevin-volpp-md-phd/">Kevin Volpp</a> in the Department of Health Care Management at Wharton.</p>
+            I am very fortunate to be advised by several incredible mentors: Professor <a href="https://zhihuang.ai">Zhi Huang</a> in the Department of Pathology & Laboratory Medicine at Penn Medicine, Professor <a href="https://nzhanglab.github.io/pages/pi.html">Nancy Zhang</a> in the Department of Statistics at Wharton, and Professor <a href="https://chibe.upenn.edu/expert/kevin-volpp-md-phd/">Kevin Volpp</a> in the Department of Health Care Management at Wharton.</p>
         </section>
         <section id="research">
             <h4>Research</h4>
