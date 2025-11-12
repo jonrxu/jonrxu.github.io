@@ -24,11 +24,6 @@
             font-style: italic;
             font-display: swap;
         }
-        .publication {
-            margin: 0 0 14px 0;
-            text-indent: 0;
-            padding-left: 0;
-        }
         /* Minimalist typography inspired by Jason Wei's site */
         html, body {
             color: #111;
@@ -55,7 +50,7 @@
             font-optical-sizing: auto;
             font-weight: 600;
             font-style: normal;
-            margin: 28px 0 8px 0;
+            margin: 28px 0 16px 0;
             font-size: 1.4em;
         }
         a {
@@ -83,15 +78,62 @@
         #writing li {
             margin: 6px 0;
         }
-        /* Keep publication links consistent */
-        .publication a { text-decoration-color: #dcdcdc; }
-        .publication a:hover { text-decoration-color: #111; }
+        /* Publication entries - date on left, paper on right */
+        .publication {
+            display: flex;
+            gap: 20px;
+            margin: 0 0 20px 0;
+            padding: 0;
+            text-indent: 0;
+        }
+        .publication-date {
+            flex-shrink: 0;
+            width: 80px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        .publication-content {
+            flex: 1;
+        }
+        .publication-title {
+            margin: 0 0 4px 0;
+            font-weight: 500;
+        }
+        .publication-authors {
+            margin: 0 0 4px 0;
+            color: #666;
+            font-size: 0.95em;
+        }
+        .publication-meta {
+            margin: 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .publication-meta .journal,
+        .publication-meta .status {
+            color: #111;
+            font-weight: 500;
+        }
+        .publication-title a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .publication-title a:hover {
+            text-decoration: underline;
+            text-decoration-color: #111;
+        }
         /* Dark mode */
         @media (prefers-color-scheme: dark) {
             html, body { background: #0e0e0e; color: #e7e7e7; }
             a { color: #e7e7e7; text-decoration-color: #4a4a4a; }
             a:hover { text-decoration-color: #e7e7e7; }
             section + section { border-top-color: #1f1f1f; }
+            .publication-date { color: #999; }
+            .publication-authors { color: #999; }
+            .publication-meta { color: #999; }
+            .publication-meta .journal,
+            .publication-meta .status { color: #e7e7e7; }
+            .publication-title a:hover { text-decoration-color: #e7e7e7; }
         }
     </style>
 </head>
@@ -108,21 +150,30 @@
         </section>
         <section id="research">
             <h4>Research</h4>
-            <p class="publication">
-                <em>A co-evolving agentic AI system for medical imaging analysis.</em><br>
-                Songhao Li, <strong>Jonathan Xu</strong>, Tiancheng Bao, Yuxuan Liu, Yuchen Liu, Yihang Liu, Lilin Wang, Wenhui Lei, Sheng Wang, Yinuo Xu, Yan Cui, Jialu Yao, Shunsuke Koga, Zhi Huang.<br>
-                <em>arXiv</em>, 2025. DOI: <a href="https://doi.org/10.48550/arXiv.2509.20279">10.48550/arXiv.2509.20279</a>. <strong>Under revision at Nature.</strong>
-            </p>
-            <p class="publication">
-                <em>SpatialFinder: A Human-in-the-Loop Vision-Language Framework for Prioritizing High-Value Regions in Spatial Transcriptomics.</em><br>
-                <strong>Jonathan Xu</strong>, Michelle Jiang, Shunsuke Koga, Nancy Zhang, Zhi Huang.<br>
-                <em>bioRxiv</em>, 2025-08-21. DOI: <a href="https://doi.org/10.1101/2025.08.16.670684">10.1101/2025.08.16.670684</a>.
-            </p>
-            <p class="publication">
-                <em>Lipid Nanoparticles Delivering Constitutively Active STING mRNA to Stimulate Antitumor Immunity.</em><br>
-                Wei Liu, Mohamad-Gabriel Alameh, June F. Yang, <strong>Jonathan R. Xu</strong>, Paulo J. C. Lin, Ying K. Tam, Drew Weissman, Jianxin You.<br>
-                <em>International Journal of Molecular Sciences</em>, 2022, 23(23), 14504. DOI: <a href="https://doi.org/10.3390/ijms232314504">10.3390/ijms232314504</a>.
-            </p>
+            <div class="publication">
+                <div class="publication-date">2025</div>
+                <div class="publication-content">
+                    <div class="publication-title"><a href="https://doi.org/10.48550/arXiv.2509.20279">A co-evolving agentic AI system for medical imaging analysis.</a></div>
+                    <div class="publication-authors">Songhao Li, Jonathan Xu, Tiancheng Bao, Yuxuan Liu, Yuchen Liu, Yihang Liu, Lilin Wang, Wenhui Lei, Sheng Wang, Yinuo Xu, Yan Cui, Jialu Yao, Shunsuke Koga, Zhi Huang.</div>
+                    <div class="publication-meta"><span class="status">Under revision at Nature</span></div>
+                </div>
+            </div>
+            <div class="publication">
+                <div class="publication-date">2025</div>
+                <div class="publication-content">
+                    <div class="publication-title"><a href="https://doi.org/10.1101/2025.08.16.670684">SpatialFinder: A Human-in-the-Loop Vision-Language Framework for Prioritizing High-Value Regions in Spatial Transcriptomics.</a></div>
+                    <div class="publication-authors">Jonathan Xu, Michelle Jiang, Shunsuke Koga, Nancy Zhang, Zhi Huang.</div>
+                    <div class="publication-meta">bioRxiv</div>
+                </div>
+            </div>
+            <div class="publication">
+                <div class="publication-date">2022</div>
+                <div class="publication-content">
+                    <div class="publication-title"><a href="https://doi.org/10.3390/ijms232314504">Lipid Nanoparticles Delivering Constitutively Active STING mRNA to Stimulate Antitumor Immunity.</a></div>
+                    <div class="publication-authors">Wei Liu, Mohamad-Gabriel Alameh, June F. Yang, Jonathan R. Xu, Paulo J. C. Lin, Ying K. Tam, Drew Weissman, Jianxin You.</div>
+                    <div class="publication-meta"><span class="journal">International Journal of Molecular Sciences</span></div>
+                </div>
+            </div>
         </section>
         
         <section id="writing">
