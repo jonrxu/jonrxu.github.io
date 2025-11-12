@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jonathan Xu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         @font-face {
             font-family: 'Crimson Pro';
@@ -30,21 +33,29 @@
         html, body {
             color: #111;
             background: #fff;
-            font-family: "Crimson Pro", ui-serif, Georgia, "Times New Roman", serif;
-            font-size: 17px;
+            font-family: "Lora", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
             line-height: 1.65;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
         h1 {
+            font-family: "Roboto Mono", monospace;
+            font-optical-sizing: auto;
             font-weight: 600;
+            font-style: normal;
             letter-spacing: -0.01em;
             margin: 0 0 8px 0;
             font-size: clamp(28px, 5vw, 40px);
         }
         h4 {
-            margin: 28px 0 8px 0;
+            font-family: "Roboto Mono", monospace;
+            font-optical-sizing: auto;
             font-weight: 600;
+            font-style: normal;
+            margin: 28px 0 8px 0;
             font-size: 1.4em;
         }
         a {
@@ -62,6 +73,7 @@
         }
         /* Subtle section dividers */
         section + section { border-top: 1px solid #f0f0f0; padding-top: 16px; }
+        section:has(+ section) { padding-bottom: 16px; }
         /* Writing list */
         #writing ul {
             list-style: none;
@@ -89,7 +101,7 @@
     </header>
     <main>
         <section id="introduction">
-            <p>I am a senior at the Wharton School studying statistics and pursuing a concurrent master's in computer science. I am particularly interested in the intersection of AI and healthcare/precision medicine, as well as how to develop autonomous AI systems that can generate novel insights for scientific discovery.
+            <p>I am a senior at the Wharton School studying statistics and pursuing a concurrent master's in computer science. I am particularly interested in the intersection of AI and healthcare &amp; precision medicine, as well as how to develop autonomous AI systems that can generate novel insights for scientific discovery.
             <br/>
             <br/>
             I am very fortunate to be advised by several incredible mentors: Professor <a href="https://zhihuang.ai">Zhi Huang</a> in the Department of Pathology & Laboratory Medicine at Penn Medicine, Professor <a href="https://nzhanglab.github.io/pages/pi.html">Nancy Zhang</a> in the Department of Statistics at Wharton, and Professor <a href="https://chibe.upenn.edu/expert/kevin-volpp-md-phd/">Kevin Volpp</a> in the Department of Health Care Management at Wharton.</p>
