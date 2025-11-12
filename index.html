@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jonathan Xu</title>
     <style>
+        @font-face {
+            font-family: 'Crimson Pro';
+            src: url('fonts/CrimsonPro-Variable.woff2') format('woff2'),
+                 url('fonts/CrimsonPro-Variable.woff') format('woff');
+            font-weight: 200 900;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Crimson Pro';
+            src: url('fonts/CrimsonPro-VariableItalic.woff2') format('woff2'),
+                 url('fonts/CrimsonPro-VariableItalic.woff') format('woff');
+            font-weight: 200 900;
+            font-style: italic;
+            font-display: swap;
+        }
         .publication {
             margin: 0 0 14px 0;
             text-indent: 0;
@@ -14,7 +30,8 @@
         html, body {
             color: #111;
             background: #fff;
-            font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+            font-family: "Crimson Pro", ui-serif, Georgia, "Times New Roman", serif;
+            font-size: 17px;
             line-height: 1.65;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -23,11 +40,12 @@
             font-weight: 600;
             letter-spacing: -0.01em;
             margin: 0 0 8px 0;
-            font-size: clamp(22px, 4vw, 32px);
+            font-size: clamp(28px, 5vw, 40px);
         }
         h4 {
             margin: 28px 0 8px 0;
             font-weight: 600;
+            font-size: 1.4em;
         }
         a {
             color: #111;
@@ -81,7 +99,7 @@
             <p class="publication">
                 <em>A co-evolving agentic AI system for medical imaging analysis.</em><br>
                 Songhao Li, <strong>Jonathan Xu</strong>, Tiancheng Bao, Yuxuan Liu, Yuchen Liu, Yihang Liu, Lilin Wang, Wenhui Lei, Sheng Wang, Yinuo Xu, Yan Cui, Jialu Yao, Shunsuke Koga, Zhi Huang.<br>
-                <em>arXiv</em>, 2025. Link: <a href="https://arxiv.org/abs/2509.20279">arxiv.org/abs/2509.20279</a>.
+                <em>arXiv</em>, 2025. DOI: <a href="https://doi.org/10.48550/arXiv.2509.20279">10.48550/arXiv.2509.20279</a>. <strong>Under revision at Nature.</strong>
             </p>
             <p class="publication">
                 <em>SpatialFinder: A Human-in-the-Loop Vision-Language Framework for Prioritizing High-Value Regions in Spatial Transcriptomics.</em><br>
