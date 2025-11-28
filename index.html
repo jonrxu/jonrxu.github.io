@@ -69,15 +69,6 @@
         /* Subtle section dividers */
         section + section { border-top: 1px solid #f0f0f0; padding-top: 16px; }
         section:has(+ section) { padding-bottom: 16px; }
-        /* Writing list */
-        #writing ul {
-            list-style: none;
-            padding-left: 0;
-            margin: 8px 0 0 0;
-        }
-        #writing li {
-            margin: 6px 0;
-        }
         /* Publication entries - date on left, paper on right */
         .publication {
             display: flex;
@@ -176,11 +167,16 @@
             </div>
         </section>
         
-        <section id="writing">
-            <h4>Writing</h4>
-            <ul>
-                <li><a href="https://www.lesswrong.com/posts/hMHFKgX5uqD4PE59c/an-observation-on-self-play">An observation on self-play</a></li>
-            </ul>
+        <section id="teaching">
+            <h4>Teaching</h4>
+            <div class="publication">
+                <div class="publication-date">2025-2026</div>
+                <div class="publication-content">
+                    <div class="publication-title"><a href="https://cis5550.seas.upenn.edu/">CIS5550 Internet & Web Systems</a></div>
+                    <div class="publication-authors">Teaching Assistant, Fall 2025, Spring 2026</div>
+                    <div class="publication-meta">Difficulty: 3.8/4.0</div>
+                </div>
+            </div>
         </section>
         <section id="contact">
             <h4>Contact</h4>
