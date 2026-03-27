@@ -4,32 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jonathan Xu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         /* Minimalist typography inspired by Jason Wei's site */
         html, body {
             color: #111;
             background: #fff;
-            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            font-family: "Newsreader", Georgia, serif;
             font-weight: 400;
             font-style: normal;
-            line-height: 1.65;
+            line-height: 1.68;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
         h1 {
-            font-family: "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace;
-            font-weight: 600;
+            font-family: "Newsreader", Georgia, serif;
+            font-weight: 500;
             font-style: normal;
             letter-spacing: -0.01em;
             margin: 0 0 8px 0;
             font-size: clamp(28px, 5vw, 40px);
         }
         h4 {
-            font-family: "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace;
-            font-weight: 600;
+            font-family: "IBM Plex Mono", monospace;
+            font-weight: 500;
             font-style: normal;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
             margin: 28px 0 16px 0;
-            font-size: 1.4em;
+            font-size: 0.82rem;
         }
         a {
             color: #111;
@@ -56,10 +61,12 @@
             text-indent: 0;
         }
         .publication-date {
+            font-family: "IBM Plex Mono", monospace;
+            font-weight: 500;
             flex-shrink: 0;
             width: 80px;
             color: #666;
-            font-size: 0.9em;
+            font-size: 0.82em;
         }
         .publication-content {
             flex: 1;
@@ -71,7 +78,13 @@
         .publication-authors {
             margin: 0 0 4px 0;
             color: #666;
-            font-size: 0.95em;
+            font-size: 0.88em;
+        }
+        .author-self {
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
         }
         .publication-meta {
             margin: 0;
@@ -122,24 +135,24 @@
             <div class="publication">
                 <div class="publication-date">2025</div>
                 <div class="publication-content">
-                    <div class="publication-title"><a href="https://doi.org/10.48550/arXiv.2509.20279">A co-evolving agentic AI system for medical imaging analysis.</a></div>
-                    <div class="publication-authors">Li, S., Xu, J., Bao, T., Liu, Y., Liu, Y., Liu, Y., Wang, L., Lei, W., Wang, S., Xu, Y., Cui, Y., Yao, J., Koga, S., Huang, Z.</div>
+                    <div class="publication-title"><a href="https://doi.org/10.48550/arXiv.2509.20279">A co-evolving agentic AI system for medical imaging analysis</a></div>
+                    <div class="publication-authors">Li, S., <span class="author-self">Xu, J.</span>, Bao, T., Liu, Y., Liu, Y., Liu, Y., Wang, L., Lei, W., Wang, S., Xu, Y., Cui, Y., Yao, J., Koga, S., Huang, Z.</div>
                     <div class="publication-meta"><span class="status">Under revision at Nature</span></div>
                 </div>
             </div>
             <div class="publication">
                 <div class="publication-date">2025</div>
                 <div class="publication-content">
-                    <div class="publication-title"><a href="https://doi.org/10.1101/2025.08.16.670684">SpatialFinder: A Human-in-the-Loop Vision-Language Framework for Prioritizing High-Value Regions in Spatial Transcriptomics.</a></div>
-                    <div class="publication-authors">Xu, J., Jiang, M., Koga, S., Zhang, N., Huang, Z.</div>
-                    <div class="publication-meta"><span class="status">Under revision at Frontiers in Bioinformatics</span></div>
+                    <div class="publication-title"><a href="https://doi.org/10.1101/2025.08.16.670684">A human-in-the-loop vision-language framework for prioritizing high-value regions in spatial transcriptomics</a></div>
+                    <div class="publication-authors"><span class="author-self">Xu, J.</span>, Jiang, M., Koga, S., Zhang, N., Huang, Z.</div>
+                    <div class="publication-meta"><span class="journal">Frontiers in Bioinformatics</span></div>
                 </div>
             </div>
             <div class="publication">
                 <div class="publication-date">2022</div>
                 <div class="publication-content">
-                    <div class="publication-title"><a href="https://doi.org/10.3390/ijms232314504">Lipid Nanoparticles Delivering Constitutively Active STING mRNA to Stimulate Antitumor Immunity.</a></div>
-                    <div class="publication-authors">Liu, W., Alameh, M.-G., Yang, J. F., Xu, J. R., Lin, P. J. C., Tam, Y. K., Weissman, D., You, J.</div>
+                    <div class="publication-title"><a href="https://doi.org/10.3390/ijms232314504">Lipid nanoparticles delivering constitutively active STING mRNA to stimulate antitumor immunity</a></div>
+                    <div class="publication-authors">Liu, W., Alameh, M.-G., Yang, J. F., <span class="author-self">Xu, J. R.</span>, Lin, P. J. C., Tam, Y. K., Weissman, D., You, J.</div>
                     <div class="publication-meta"><span class="journal">International Journal of Molecular Sciences</span></div>
                 </div>
             </div>
