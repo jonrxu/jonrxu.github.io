@@ -12,12 +12,18 @@
         html, body {
             color: #111;
             background: #fff;
-            font-family: "Newsreader", Georgia, serif;
+            font-family: Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
             font-weight: 400;
             font-style: normal;
             line-height: 1.68;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+        }
+        p,
+        .publication-title,
+        .publication-authors,
+        .publication-meta {
+            font-family: Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
         }
         h1 {
             font-family: "Newsreader", Georgia, serif;
@@ -26,6 +32,11 @@
             letter-spacing: -0.01em;
             margin: 0 0 8px 0;
             font-size: clamp(28px, 5vw, 40px);
+        }
+        .subtitle {
+            margin: 0;
+            color: #777;
+            font-size: 0.95rem;
         }
         h4 {
             font-family: "IBM Plex Mono", monospace;
@@ -113,6 +124,7 @@
             .publication-date { color: #999; }
             .publication-authors { color: #999; }
             .publication-meta { color: #999; }
+            .subtitle { color: #999; }
             .publication-meta .journal,
             .publication-meta .status { color: #e7e7e7; }
             .publication-title a:hover { text-decoration-color: #e7e7e7; }
@@ -122,6 +134,7 @@
 <body style="max-width: 680px; margin: 0 auto; padding-left: 10px; padding-right: 10px; padding-top: 40px; padding-bottom: 20px;">
     <header>
         <h1>Jonathan Xu</h1>
+        <p class="subtitle">jonrxu [at] gmail [dot] com</p>
     </header>
     <main>
         <section id="introduction">
@@ -143,7 +156,7 @@
             <div class="publication">
                 <div class="publication-date">2025</div>
                 <div class="publication-content">
-                    <div class="publication-title"><a href="https://doi.org/10.1101/2025.08.16.670684">A human-in-the-loop vision-language framework for prioritizing high-value regions in spatial transcriptomics</a></div>
+                    <div class="publication-title"><a href="https://www.frontiersin.org/journals/bioinformatics/articles/10.3389/fbinf.2026.1746714/full">A human-in-the-loop vision-language framework for prioritizing high-value regions in spatial transcriptomics</a></div>
                     <div class="publication-authors"><span class="author-self">Xu, J.</span>, Jiang, M., Koga, S., Zhang, N., Huang, Z.</div>
                     <div class="publication-meta"><span class="journal">Frontiers in Bioinformatics</span></div>
                 </div>
@@ -168,11 +181,6 @@
                     <div class="publication-authors">Head Teaching Assistant, Spring 2026</div>
                 </div>
             </div>
-        </section>
-        <section id="contact">
-            <h4>Contact</h4>
-            <p>Email: jonrxu [at] gmail [dot] com</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/jonathanrxu/">linkedin.com/in/jonathanrxu/</a></p>
         </section>
     </main>
 </body>
