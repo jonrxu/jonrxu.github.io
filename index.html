@@ -30,13 +30,52 @@
             font-weight: 500;
             font-style: normal;
             letter-spacing: -0.01em;
-            margin: 0 0 8px 0;
+            margin: 0 0 0 0;
             font-size: clamp(28px, 5vw, 40px);
         }
         .subtitle {
             margin: 0;
             color: #777;
             font-size: 0.95rem;
+        }
+        .intro {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+        .intro-photo {
+            flex: 0 0 33%;
+            max-width: 200px;
+            width: 33%;
+        }
+        .intro-photo img {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            object-position: center top;
+        }
+        .intro-text {
+            flex: 1;
+            min-width: 0;
+        }
+        .intro-text p {
+            margin: 0;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+        @media (max-width: 520px) {
+            .intro {
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+            }
+            .intro-photo {
+                flex: none;
+                width: 160px;
+                max-width: 160px;
+            }
         }
         h4 {
             font-family: "IBM Plex Mono", monospace;
@@ -138,10 +177,16 @@
     </header>
     <main>
         <section id="introduction">
-            <p>I am a senior at the University of Pennsylvania studying statistics and pursuing a concurrent master's in computer science. I am particularly interested in the intersection of AI and healthcare &amp; precision medicine, as well as how to develop autonomous AI systems that can generate novel insights for scientific discovery.
-            <br/>
-            <br/>
-            I am very fortunate to be advised by several outstanding mentors: Professor <a href="https://zhihuang.ai">Zhi Huang</a> in the Department of Pathology & Laboratory Medicine at Penn Medicine, Professor <a href="https://nzhanglab.github.io/pages/pi.html">Nancy Zhang</a> in the Department of Statistics at Wharton, and Professor <a href="https://chibe.upenn.edu/expert/kevin-volpp-md-phd/">Kevin Volpp</a> in the Department of Health Care Management at Wharton.</p>
+            <div class="intro">
+                <div class="intro-photo">
+                    <img src="images/personal.jpg" alt="Jonathan Xu">
+                </div>
+                <div class="intro-text">
+                    <p>I am an incoming PhD student in Genomics and Computational Biology at the University of Pennsylvania. I recently graduated from Penn with a B.S. in Statistics and Data Science from Wharton and an M.S. in Computer Science.</p>
+                    <br/>
+                    <p>I am most excited about designing adaptive, precise nanoparticles from first principles to transform therapeutics, gene delivery, and human capability. Toward this goal, I hope to build autonomous AI systems and robotic wet labs that accelerate scientific discovery and open new frontiers in nanoscale material design.</p>
+                </div>
+            </div>
         </section>
         <section id="research">
             <h4>Research</h4>
