@@ -21,8 +21,7 @@
         }
         p,
         .publication-title,
-        .publication-authors,
-        .publication-meta {
+        .publication-authors {
             font-family: Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
         }
         h1 {
@@ -126,9 +125,12 @@
             font-weight: 500;
         }
         .publication-authors {
-            margin: 0 0 4px 0;
+            margin: 0;
             color: #666;
             font-size: 0.88em;
+        }
+        #research .publication-authors {
+            font-size: 0.78em;
         }
         .author-self {
             font-weight: 700;
@@ -136,19 +138,33 @@
             text-decoration-thickness: 1px;
             text-underline-offset: 2px;
         }
-        .publication-meta {
-            margin: 0;
-            font-size: 0.9em;
-            color: #666;
-        }
-        .publication-meta .journal,
-        .publication-meta .status {
-            color: #111;
+        .pub-badge {
+            display: inline-block;
+            font-family: "IBM Plex Mono", monospace;
             font-weight: 500;
+            font-size: 0.68em;
+            letter-spacing: 0.02em;
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
+            padding: 0 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            color: #555;
+            background: #f7f7f7;
+            white-space: nowrap;
+            line-height: 1.35;
+        }
+        .pub-badge.status {
+            border-color: #ccc;
+            color: #666;
+            background: #fafafa;
+            font-style: italic;
         }
         .publication-title a {
             text-decoration: none;
             color: inherit;
+            padding-right: 8px;
         }
         .publication-title a:hover {
             text-decoration: underline;
@@ -162,10 +178,17 @@
             section + section { border-top-color: #1f1f1f; }
             .publication-date { color: #999; }
             .publication-authors { color: #999; }
-            .publication-meta { color: #999; }
             .subtitle { color: #999; }
-            .publication-meta .journal,
-            .publication-meta .status { color: #e7e7e7; }
+            .pub-badge {
+                border-color: #3a3a3a;
+                color: #bbb;
+                background: #1a1a1a;
+            }
+            .pub-badge.status {
+                border-color: #333;
+                color: #999;
+                background: #161616;
+            }
             .publication-title a:hover { text-decoration-color: #e7e7e7; }
         }
     </style>
@@ -191,27 +214,31 @@
         <section id="research">
             <h4>Research</h4>
             <div class="publication">
-                <div class="publication-date">2025</div>
+                <div class="publication-date">2026</div>
                 <div class="publication-content">
-                    <div class="publication-title"><a href="https://doi.org/10.48550/arXiv.2509.20279">A co-evolving agentic AI system for medical imaging analysis</a></div>
-                    <div class="publication-authors">Li, S., <span class="author-self">Xu, J.</span>, Bao, T., Liu, Y., Liu, Y., Liu, Y., Wang, L., Lei, W., Wang, S., Xu, Y., Cui, Y., Yao, J., Koga, S., Huang, Z.</div>
-                    <div class="publication-meta"><span class="status">Under revision at Nature</span></div>
+                    <div class="publication-title"><a href="#">Closing the loop: designing an agentic AI food is medicine intervention for diabetes</a><span class="pub-badge status">Undergraduate thesis</span></div>
+                    <div class="publication-authors"><span class="author-self">Xu, J.</span>, Volpp, K.</div>
                 </div>
             </div>
             <div class="publication">
                 <div class="publication-date">2025</div>
                 <div class="publication-content">
-                    <div class="publication-title"><a href="https://www.frontiersin.org/journals/bioinformatics/articles/10.3389/fbinf.2026.1746714/full">A human-in-the-loop vision-language framework for prioritizing high-value regions in spatial transcriptomics</a></div>
+                    <div class="publication-title"><a href="https://doi.org/10.48550/arXiv.2509.20279">A co-evolving agentic AI system for medical imaging analysis</a><span class="pub-badge status">In revision at Nature</span></div>
+                    <div class="publication-authors">Li, S., <span class="author-self">Xu, J.</span>, Bao, T., Liu, Y., Liu, Y., Liu, Y., Wang, L., Lei, W., Wang, S., Xu, Y., Cui, Y., Yao, J., Koga, S., Huang, Z.</div>
+                </div>
+            </div>
+            <div class="publication">
+                <div class="publication-date">2025</div>
+                <div class="publication-content">
+                    <div class="publication-title"><a href="https://www.frontiersin.org/journals/bioinformatics/articles/10.3389/fbinf.2026.1746714/full">A human-in-the-loop vision-language framework for prioritizing high-value regions in spatial transcriptomics</a><span class="pub-badge">Frontiers in Bioinformatics</span></div>
                     <div class="publication-authors"><span class="author-self">Xu, J.</span>, Jiang, M., Koga, S., Zhang, N., Huang, Z.</div>
-                    <div class="publication-meta"><span class="journal">Frontiers in Bioinformatics</span></div>
                 </div>
             </div>
             <div class="publication">
                 <div class="publication-date">2022</div>
                 <div class="publication-content">
-                    <div class="publication-title"><a href="https://doi.org/10.3390/ijms232314504">Lipid nanoparticles delivering constitutively active STING mRNA to stimulate antitumor immunity</a></div>
+                    <div class="publication-title"><a href="https://doi.org/10.3390/ijms232314504">Lipid nanoparticles delivering constitutively active STING mRNA to stimulate antitumor immunity</a><span class="pub-badge">Int. J. Mol. Sci.</span></div>
                     <div class="publication-authors">Liu, W., Alameh, M.-G., Yang, J. F., <span class="author-self">Xu, J. R.</span>, Lin, P. J. C., Tam, Y. K., Weissman, D., You, J.</div>
-                    <div class="publication-meta"><span class="journal">International Journal of Molecular Sciences</span></div>
                 </div>
             </div>
         </section>
