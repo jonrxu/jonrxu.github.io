@@ -64,11 +64,14 @@
             font-size: 0.92rem;
             line-height: 1.6;
         }
+        .intro-text p + p {
+            margin-top: 0.85em;
+        }
         @media (max-width: 520px) {
             .intro {
                 flex-direction: column;
-                align-items: center;
-                gap: 16px;
+                align-items: flex-start;
+                gap: 28px;
             }
             .intro-photo {
                 flex: none;
@@ -206,7 +209,6 @@
                 </div>
                 <div class="intro-text">
                     <p>I am an incoming PhD student in Genomics and Computational Biology at the University of Pennsylvania. I recently graduated from Penn with a B.S. in Statistics and Data Science from Wharton and an M.S. in Computer Science.</p>
-                    <br/>
                     <p>I am most excited about designing adaptive, precise nanoparticles from first principles to transform therapeutics, gene delivery, and human capability. Toward this goal, I hope to build autonomous AI systems and robotic wet labs that accelerate scientific discovery and open new frontiers in nanoscale material design.</p>
                 </div>
             </div>
