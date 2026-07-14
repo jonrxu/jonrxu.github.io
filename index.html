@@ -166,62 +166,6 @@
             text-decoration: underline;
             text-decoration-color: #111;
         }
-        .coming-soon-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.72);
-            backdrop-filter: blur(2px);
-            -webkit-backdrop-filter: blur(2px);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 160ms ease, visibility 160ms ease;
-        }
-        .coming-soon-overlay.is-open {
-            opacity: 1;
-            visibility: visible;
-        }
-        .coming-soon-dialog {
-            position: relative;
-            width: min(240px, 100%);
-            padding: 28px 36px 26px;
-            background: #fff;
-            border: 1px solid #e8e8e8;
-            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
-            text-align: center;
-        }
-        .coming-soon-label {
-            margin: 0;
-            font-family: "IBM Plex Mono", monospace;
-            font-weight: 500;
-            font-size: 0.82rem;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: #111;
-        }
-        .coming-soon-close {
-            position: absolute;
-            top: 6px;
-            right: 8px;
-            width: 28px;
-            height: 28px;
-            padding: 0;
-            border: none;
-            background: none;
-            color: #999;
-            font-size: 1.15rem;
-            line-height: 1;
-            cursor: pointer;
-        }
-        .coming-soon-close:hover { color: #111; }
-        .coming-soon-close:focus-visible {
-            outline: 2px solid #999;
-            outline-offset: 2px;
-        }
         /* Dark mode */
         @media (prefers-color-scheme: dark) {
             html, body { background: #0e0e0e; color: #e7e7e7; }
@@ -237,15 +181,6 @@
                 background: #1a1a1a;
             }
             .publication-title a:hover { text-decoration-color: #e7e7e7; }
-            .coming-soon-overlay { background: rgba(0, 0, 0, 0.62); }
-            .coming-soon-dialog {
-                background: #141414;
-                border-color: #2a2a2a;
-                box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
-            }
-            .coming-soon-label { color: #e7e7e7; }
-            .coming-soon-close { color: #777; }
-            .coming-soon-close:hover { color: #e7e7e7; }
         }
     </style>
 </head>
@@ -271,7 +206,7 @@
             <div class="publication">
                 <div class="publication-date">2026</div>
                 <div class="publication-content">
-                    <div class="publication-title"><a href="#" id="thesis-link">Closing the loop: designing an agentic AI food is medicine intervention for diabetes</a><span class="pub-badge">Undergraduate thesis</span></div>
+                    <div class="publication-title"><a href="https://repository.upenn.edu/entities/publication/30691049-729c-4255-ae81-56c4b443f239" target="_blank" rel="noopener noreferrer">Closing the loop: designing an agentic AI food is medicine intervention for diabetes</a><span class="pub-badge">Undergraduate thesis</span></div>
                     <div class="publication-authors"><span class="author-self">Xu, J.</span>, Volpp, K.</div>
                 </div>
             </div>
@@ -310,47 +245,5 @@
             </div>
         </section>
     </main>
-
-    <div class="coming-soon-overlay" id="coming-soon" hidden>
-        <div class="coming-soon-dialog" role="dialog" aria-modal="true" aria-labelledby="coming-soon-label">
-            <button type="button" class="coming-soon-close" id="coming-soon-close" aria-label="Close">×</button>
-            <p class="coming-soon-label" id="coming-soon-label">Coming soon</p>
-        </div>
-    </div>
-
-    <script>
-        (function () {
-            var link = document.getElementById("thesis-link");
-            var overlay = document.getElementById("coming-soon");
-            var closeBtn = document.getElementById("coming-soon-close");
-            if (!link || !overlay || !closeBtn) return;
-
-            function openPopup(e) {
-                e.preventDefault();
-                overlay.hidden = false;
-                // Force reflow so the transition runs
-                void overlay.offsetWidth;
-                overlay.classList.add("is-open");
-                closeBtn.focus();
-            }
-
-            function closePopup() {
-                overlay.classList.remove("is-open");
-                window.setTimeout(function () {
-                    if (!overlay.classList.contains("is-open")) overlay.hidden = true;
-                }, 160);
-                link.focus();
-            }
-
-            link.addEventListener("click", openPopup);
-            closeBtn.addEventListener("click", closePopup);
-            overlay.addEventListener("click", function (e) {
-                if (e.target === overlay) closePopup();
-            });
-            document.addEventListener("keydown", function (e) {
-                if (e.key === "Escape" && overlay.classList.contains("is-open")) closePopup();
-            });
-        })();
-    </script>
 </body>
 </html>
