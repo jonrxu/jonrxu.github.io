@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piece 2 — Jonathan Xu</title>
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .instrument-sans-regular {
+            font-family: "Instrument Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 450;
+            font-style: normal;
+            font-variation-settings:
+                "wdth" 100;
+        }
+        html, body {
+            color: #111;
+            background: #fff;
+            font-family: "Instrument Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 450;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+            line-height: 1.68;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        p,
+        .publication-title,
+        .publication-authors {
+            font-family: "Instrument Sans", sans-serif;
+        }
+        h1 {
+            font-family: "Instrument Sans", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+            letter-spacing: -0.01em;
+            margin: 0 0 0 0;
+            font-size: clamp(28px, 5vw, 40px);
+        }
+        .subtitle {
+            margin: 0;
+            color: #777;
+            font-size: 0.95rem;
+        }
+        .intro {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+        .intro-photo {
+            flex: 0 0 33%;
+            max-width: 200px;
+            width: 33%;
+        }
+        .intro-photo img {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            object-position: center top;
+        }
+        .intro-text {
+            flex: 1;
+            min-width: 0;
+        }
+        .intro-text p {
+            margin: 0;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+        .intro-text p + p {
+            margin-top: 0.85em;
+        }
+        @media (max-width: 520px) {
+            .intro {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 28px;
+            }
+            .intro-photo {
+                flex: none;
+                width: 160px;
+                max-width: 160px;
+            }
+        }
+        h4 {
+            font-family: "IBM Plex Mono", monospace;
+            font-weight: 500;
+            font-style: normal;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin: 28px 0 16px 0;
+            font-size: 0.82rem;
+        }
+        a {
+            color: #111;
+            text-decoration: underline;
+            text-decoration-color: #dcdcdc;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+            transition: color 120ms ease, text-decoration-color 120ms ease;
+        }
+        a:hover { text-decoration-color: #111; }
+        a:focus-visible { outline: 2px solid #999; outline-offset: 2px; }
+        section {
+            margin-top: 18px;
+        }
+        /* Subtle section dividers */
+        section + section { border-top: 1px solid #f0f0f0; padding-top: 16px; }
+        section:has(+ section) { padding-bottom: 16px; }
+        /* Publication entries - date on left, paper on right */
+        .publication {
+            display: flex;
+            gap: 20px;
+            margin: 0 0 20px 0;
+            padding: 0;
+            text-indent: 0;
+        }
+        .publication-date {
+            font-family: "IBM Plex Mono", monospace;
+            font-weight: 500;
+            flex-shrink: 0;
+            width: 80px;
+            color: #666;
+            font-size: 0.82em;
+        }
+        .publication-content {
+            flex: 1;
+        }
+        .publication-title {
+            margin: 0 0 4px 0;
+            font-weight: 500;
+        }
+        .publication-authors {
+            margin: 0;
+            color: #666;
+            font-size: 0.78em;
+        }
+        .publication-venue {
+            margin: 2px 0 0 0;
+            color: #666;
+            font-size: 0.78em;
+            font-style: italic;
+        }
+        .author-self {
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+        }
+        .publication-title a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .publication-title a:hover {
+            text-decoration: underline;
+            text-decoration-color: #111;
+        }
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            html, body { background: #0e0e0e; color: #e7e7e7; }
+            a { color: #e7e7e7; text-decoration-color: #4a4a4a; }
+            a:hover { text-decoration-color: #e7e7e7; }
+            section + section { border-top-color: #1f1f1f; }
+            .publication-date { color: #999; }
+            .publication-authors { color: #999; }
+            .publication-venue { color: #999; }
+            .subtitle { color: #999; }
+            .publication-title a:hover { text-decoration-color: #e7e7e7; }
+        }
+    </style>
+</head>
+<body class="instrument-sans-regular" style="max-width: 680px; margin: 0 auto; padding-left: 10px; padding-right: 10px; padding-top: 40px; padding-bottom: 56px;">
+    <main>
+        <article>
+            <h1>Piece 2</h1>
+            <!-- Replace this title and add the full piece here when provided. -->
+        </article>
+    </main>
+</body>
+</html>

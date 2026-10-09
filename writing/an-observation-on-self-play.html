@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>An observation on self-play — Jonathan Xu</title>
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .instrument-sans-regular {
+            font-family: "Instrument Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 450;
+            font-style: normal;
+            font-variation-settings:
+                "wdth" 100;
+        }
+        html, body {
+            color: #111;
+            background: #fff;
+            font-family: "Instrument Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 450;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+            line-height: 1.68;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        p,
+        .publication-title,
+        .publication-authors {
+            font-family: "Instrument Sans", sans-serif;
+        }
+        h1 {
+            font-family: "Instrument Sans", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+            letter-spacing: -0.01em;
+            margin: 0 0 0 0;
+            font-size: clamp(24px, 4vw, 34px);
+        }
+        .subtitle {
+            margin: 0;
+            color: #777;
+            font-size: 0.95rem;
+        }
+        .intro {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+        .intro-photo {
+            flex: 0 0 33%;
+            max-width: 200px;
+            width: 33%;
+        }
+        .intro-photo img {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            object-position: center top;
+        }
+        .intro-text {
+            flex: 1;
+            min-width: 0;
+        }
+        .intro-text p {
+            margin: 0;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+        .intro-text p + p {
+            margin-top: 0.85em;
+        }
+        @media (max-width: 520px) {
+            .intro {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 28px;
+            }
+            .intro-photo {
+                flex: none;
+                width: 160px;
+                max-width: 160px;
+            }
+        }
+        h4 {
+            font-family: "IBM Plex Mono", monospace;
+            font-weight: 500;
+            font-style: normal;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin: 28px 0 16px 0;
+            font-size: 0.82rem;
+        }
+        a {
+            color: #111;
+            text-decoration: underline;
+            text-decoration-color: #dcdcdc;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+            transition: color 120ms ease, text-decoration-color 120ms ease;
+        }
+        a:hover { text-decoration-color: #111; }
+        a:focus-visible { outline: 2px solid #999; outline-offset: 2px; }
+        section {
+            margin-top: 18px;
+        }
+        /* Subtle section dividers */
+        section + section { position: relative; padding-top: 17px; }
+        section + section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, #e8e8e8 0%, #e8e8e8 75%, transparent 100%);
+            pointer-events: none;
+        }
+        section:has(+ section) { padding-bottom: 16px; }
+        /* Publication entries - date on left, paper on right */
+        .publication {
+            display: flex;
+            gap: 20px;
+            margin: 0 0 20px 0;
+            padding: 0;
+            text-indent: 0;
+        }
+        .publication-date {
+            font-family: "IBM Plex Mono", monospace;
+            font-weight: 500;
+            flex-shrink: 0;
+            width: 80px;
+            color: #666;
+            font-size: 0.82em;
+        }
+        .publication-content {
+            flex: 1;
+        }
+        .publication-title {
+            margin: 0 0 4px 0;
+            font-weight: 500;
+        }
+        .publication-authors {
+            margin: 0;
+            color: #666;
+            font-size: 0.78em;
+        }
+        .publication-venue {
+            margin: 2px 0 0 0;
+            color: #666;
+            font-size: 0.78em;
+            font-style: italic;
+        }
+        .author-self {
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+        }
+        .publication-title a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .publication-title a:hover {
+            text-decoration: underline;
+            text-decoration-color: #111;
+        }
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            html, body { background: #0e0e0e; color: #e7e7e7; }
+            a { color: #e7e7e7; text-decoration-color: #4a4a4a; }
+            a:hover { text-decoration-color: #e7e7e7; }
+            section + section::before { background: linear-gradient(to right, #292929 0%, #292929 75%, transparent 100%); }
+            .publication-date { color: #999; }
+            .publication-authors { color: #999; }
+            .publication-venue { color: #999; }
+            .subtitle { color: #999; }
+            .publication-title a:hover { text-decoration-color: #e7e7e7; }
+        }
+        .article-header { margin-bottom: 28px; }
+        .article-header .subtitle { margin-top: 12px; font-size: 0.82rem; }
+        .article-body p { margin: 0 0 1.15em; font-size: 0.92rem; }
+        .article-body { overflow-wrap: anywhere; }
+        .article-body figure { margin: 28px 0; }
+        .article-body figure a { display: block; }
+        .article-body img { display: block; width: 100%; height: auto; }
+        body { position: relative; box-sizing: border-box; width: 100%; }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            width: 1px;
+            background: #e8e8e8;
+            -webkit-mask-image: linear-gradient(to bottom, transparent, #000 80px, #000 calc(100% - 80px), transparent);
+            mask-image: linear-gradient(to bottom, transparent, #000 80px, #000 calc(100% - 80px), transparent);
+            pointer-events: none;
+        }
+        @media (max-width: 740px) {
+            body { padding-left: 52px !important; padding-right: 24px !important; }
+        }
+        @media (prefers-color-scheme: dark) {
+            body::before { background: #292929; }
+        }
+    </style>
+</head>
+<body class="instrument-sans-regular" style="max-width: 784px; margin: 0 auto; padding-left: 52px; padding-right: 52px; padding-top: 100px; padding-bottom: 100px;">
+    <main>
+        <article>
+            <header class="article-header">
+                <h1>An observation on self-play</h1>
+                <p class="subtitle"><time datetime="2025-05-26">May 26, 2025</time> &middot; Originally published on <a href="https://www.lesswrong.com/posts/hMHFKgX5uqD4PE59c/an-observation-on-self-play">LessWrong</a></p>
+            </header>
+            <div class="article-body">
+                <p>At NeurIPS 2024, Ilya Sutskever delivered a short keynote address in honor of his <a href="https://arxiv.org/pdf/1409.3215">Seq2seq paper</a>, published a decade earlier. It was his first—and so far only—public appearance to discuss his research since parting ways with OpenAI.</p>
+                <p>The talk itself shed little light on his current work. Instead, he reaffirmed the prevailing view that the “age of pre-training” had come to an end, touched on strategies researchers were pursuing to overcome this challenge, and outlined a broad vision of a super-intelligent AI future.</p>
+                <p>There was one interesting slide, however, which seemed oddly lodged in the middle of his presentation without much continuity with the rest of his talk. It was this:</p>
+                <figure><a aria-label="View image at full size: NeurIPS 2024 slide comparing brain and body mass across mammals, with a steeper scaling relationship for hominids." href="../images/writing/self-play/brain-body-mass.png"><img alt="NeurIPS 2024 slide comparing brain and body mass across mammals, with a steeper scaling relationship for hominids." decoding="async" height="783" loading="lazy" src="../images/writing/self-play/brain-body-mass.png" width="1400"/></a></figure>
+                <p>Ilya first noted his interest in this slide from when he was just beginning his career, chronicling how he “went to Google to do research, to look for this graph.” The chart on its surface looks pretty straightforward: a linear relationship captures the ratio of animal brain to body mass, a rare example of “nature working out neatly.” The captivating part about the graph, Ilya narrates, is how the slope for the hominids is different—the steepness of the slope seems to suggest something qualitatively different about how humans evolved.</p>
+                <p>The implication for AI? There are multiple scaling laws in both nature and machine learning, and for the latter we’ve only just identified the first.</p>
+                <p>This reminded me of another <a href="https://www.youtube.com/watch?v=BJi6N4tDupk">talk</a> he gave at NeurIPS 2017 on self-play. The younger Ilya still carried an air of mystique, like a scientific messiah reveling in his latest breakthrough. To OpenAI’s credit back then, he was far more transparent about his work. He outlined some research experiments done on self-play in video games (notably, OpenAI’s <a href="https://openai.com/index/openai-five-defeats-dota-2-world-champions/">Dota 2</a> bot), as well as <a href="https://openai.com/index/competitive-self-play/">training bots</a> in physical simulations to do sumo wrestling and goaltending.</p>
+                <p>But, predictably, he also took the liberty to speculate into the long-term future of self-play. In particular, he closes with this slide:</p>
+                <figure><a aria-label="View image at full size: NeurIPS 2017 slide proposing AGI through self-play, showing hominid brain growth, social incentives, emergent skills, and alignment issues." href="../images/writing/self-play/hominid-intelligence.png"><img alt="NeurIPS 2017 slide proposing AGI through self-play, showing hominid brain growth, social incentives, emergent skills, and alignment issues." decoding="async" height="766" loading="lazy" src="../images/writing/self-play/hominid-intelligence.png" width="1400"/></a></figure>
+                <p>The similarity between this and the 2024 version struck me. Not only the visual resemblance, but also the specific word choice he used in 2024 that mirrors what’s shown on the diagram: “Hominids… there’s a bunch of them. Homo habilis, maybe, and neanderthals.” He appears to be referencing the same pattern of rapidly scaling intelligence in the recent genetic ancestry of humans. <i>Why is this?</i> 2024 Ilya asks.</p>
+                <p>The 2017 slide seems to provide a plausible answer.</p>
+                <p>The hypothesis he offers for hominid evolution hinges upon the notion of relative standing in the tribe. Once individuals begin competing with others of comparable intelligence in complex social structures, natural selection favors those that have slightly more intelligence, which allows them to climb or stay atop social hierarchies easier. The real threat to survival, in his words, is “less the lion and more the other humans.” What ensues is an “intelligence explosion on a biological timescale.” The scientific consensus for this theory is half-hearted at best, as he jokingly acknowledges (“there exists <i>at least</i> one paper in science that backs this up”), but it makes sense intuitively.</p>
+                <p>The analogue of this biological theory in AI is self-play. Agents facing each other in relatively basic environments (physical simulators, “simple” board games) can develop extremely complex and novel strategies when placed into competition with each other. This is seen in many superhuman results in AI, from DeepMind’s <a href="https://deepmind.google/discover/blog/alphazero-shedding-new-light-on-chess-shogi-and-go/">AlphaZero</a> to the aforementioned Dota bot, but thus far has no proof of generalization outside of such siloed domains like LLMs do.</p>
+                <p>But what Ilya seems to propose, in the slide above, is that there is potential for generalization. AIs that are sufficiently smart and socially organized enough can plausibly develop theory of mind, social acumen, and understanding of artificial constructs like language. Yet this training method also poses a risk: self-play is inherently open-ended, which means that AI models may settle on a “win at all costs” mentality and thus become misaligned with human values.</p>
+                <p>More concretely, self-play in principle also can eliminate the main hurdle researchers face today: lack of training data. When pitting agents against each other, the agents begin to learn less from the static environment they coexist in and more from each other, such that the opposing agents <i>become</i> the environment. As Ilya <a href="https://www.lesswrong.com/posts/5jjk4CDnj9tA7ugxr/openai-email-archives-from-musk-v-altman-and-openai-blog#Ilya_Sutskever_to__Greg_Brockman___redacted___Elon_Musk___Jun_12__2017_10_39_PM">illustrates</a> below:</p>
+                <figure><a aria-label="View image at full size: Excerpt from Ilya Sutskever describing how multiagent self-play creates challenges matched to agent intelligence and complex strategies from simple rules." href="../images/writing/self-play/self-play-environment.png"><img alt="Excerpt from Ilya Sutskever describing how multiagent self-play creates challenges matched to agent intelligence and complex strategies from simple rules." decoding="async" height="644" loading="lazy" src="../images/writing/self-play/self-play-environment.png" width="1400"/></a></figure>
+                <p>So the obvious question: is self-play what he is working on now?</p>
+                <p>A lot of the story begins to makes sense if you suppose this is the case. His cryptic Twitter posts nodding at “a project that is very personally meaningful to me” and a “different mountain to climb.” The quirky NeurIPS slide. The emphasis on multiple scaling laws and data scarcity. His doctrine on the purity of RL and unsupervised learning. The prediction of self-awareness in future AIs.</p>
+                <p>Admittedly, this is a fairly romanticized hypothesis and there is generous room for error. But I think every researcher dreams of seeing their core instincts validated. Ilya has demonstrated <a href="https://thevarsity.ca/2010/10/25/neural-networking/">remarkable consistency</a> in his beliefs over the years, and he’s been right often enough that it no longer feels like mere coincidence. It would make sense for him to return to the questions he started with—this time, answering them at scale.</p>
+            </div>
+        </article>
+    </main>
+</body>
+</html>

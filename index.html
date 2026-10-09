@@ -80,6 +80,7 @@
             margin-top: 0.85em;
         }
         @media (max-width: 520px) {
+            .intro-text p { font-size: 14px; }
             .intro {
                 flex-direction: column;
                 align-items: flex-start;
@@ -98,7 +99,7 @@
             letter-spacing: 0.08em;
             text-transform: uppercase;
             margin: 28px 0 16px 0;
-            font-size: 0.82rem;
+            font-size: 0.95rem;
         }
         a {
             color: #111;
@@ -114,13 +115,24 @@
             margin-top: 18px;
         }
         /* Subtle section dividers */
-        section + section { border-top: 1px solid #f0f0f0; padding-top: 16px; }
-        section:has(+ section) { padding-bottom: 16px; }
+        section + section { padding-top: 4px; margin-top: 13px; }
+        section > h4::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, #e8e8e8 0%, #e8e8e8 75%, transparent 100%);
+            pointer-events: none;
+        }
+        section:has(+ section) { padding-bottom: 4px; }
+        #introduction { padding-bottom: 16px; }
         /* Publication entries - date on left, paper on right */
         .publication {
             display: flex;
             gap: 20px;
-            margin: 0 0 20px 0;
+            margin: 0 0 16px 0;
             padding: 0;
             text-indent: 0;
         }
@@ -169,19 +181,44 @@
             html, body { background: #0e0e0e; color: #e7e7e7; }
             a { color: #e7e7e7; text-decoration-color: #4a4a4a; }
             a:hover { text-decoration-color: #e7e7e7; }
-            section + section { border-top-color: #1f1f1f; }
+            section > h4::after { background: linear-gradient(to right, #292929 0%, #292929 75%, transparent 100%); }
             .publication-date { color: #999; }
             .publication-authors { color: #999; }
             .publication-venue { color: #999; }
             .subtitle { color: #999; }
             .publication-title a:hover { text-decoration-color: #e7e7e7; }
         }
+        body { position: relative; box-sizing: border-box; width: 100%; }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            width: 1px;
+            background: #e8e8e8;
+            -webkit-mask-image: linear-gradient(to bottom, transparent, #000 80px, #000 calc(100% - 80px), transparent);
+            mask-image: linear-gradient(to bottom, transparent, #000 80px, #000 calc(100% - 80px), transparent);
+            pointer-events: none;
+        }
+        @media (max-width: 740px) {
+            body { padding-left: 52px !important; padding-right: 24px !important; }
+        }
+        @media (prefers-color-scheme: dark) {
+            body::before { background: #292929; }
+        }
+        .publication-title { font-size: 14px; }
+        #thoughts .publication { margin-bottom: 12px; }
+        .contact-links { display: flex; align-items: center; gap: 12px; margin-top: 12px; }
+        .contact-links a { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; color: inherit; opacity: 0.6; text-decoration: none; transition: opacity 120ms ease; }
+        .contact-links a:hover, .contact-links a:focus-visible { opacity: 1; }
+        .contact-links svg { display: block; width: 17px; height: 17px; }
+        #research h4, #teaching h4, #thoughts h4 { position: relative; padding-bottom: 2px; margin-top: 22px; margin-bottom: 24px; }
     </style>
 </head>
-<body class="instrument-sans-regular" style="max-width: 680px; margin: 0 auto; padding-left: 10px; padding-right: 10px; padding-top: 40px; padding-bottom: 56px;">
+<body class="instrument-sans-regular" style="max-width: 784px; margin: 0 auto; padding-left: 52px; padding-right: 52px; padding-top: 100px; padding-bottom: 100px;">
     <header>
         <h1>Jonathan Xu</h1>
-        <p class="subtitle">jonrxu [at] gmail [dot] com</p>
     </header>
     <main>
         <section id="introduction">
@@ -190,8 +227,14 @@
                     <img src="images/personal.jpg" alt="Jonathan Xu">
                 </div>
                 <div class="intro-text">
-                    <p>I am a PhD student in Genomics and Computational Biology at the University of Pennsylvania. I recently graduated from Penn with a B.S. in Statistics and Data Science from Wharton and an M.S. in Computer Science.</p>
-                    <p>I am most excited about engineering new nanoparticles to transform therapeutics, gene delivery, and human capability. Toward this goal, I hope to pair computational design with high-throughput experiments to discover new breakthroughs in programmable nanomedicine.</p>
+                    <p>I am a PhD student in Genomics &amp; Computational Biology at the University of Pennsylvania. I recently graduated from Penn with a B.S. in Statistics &amp; Data Science and M.S. in Computer Science.</p>
+                    <p>I am most excited about using simulation to design molecules and understand their physical interactions. I hope to develop machine learning methods that make accurate simulations feasible over biologically meaningful timescales, with applications in protein engineering and drug discovery.</p>
+                    <nav class="contact-links" aria-label="Social media and contact">
+                        <a href="mailto:jonrxu@gmail.com" aria-label="Email" title="Email"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4h18a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2 9 7 9-7H3Zm18 12V8.5l-8.39 6.53a1 1 0 0 1-1.22 0L3 8.5V18h18Z"/></svg></a>
+                        <a href="https://x.com/jonathanrxu" aria-label="Twitter" title="Twitter"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.954 4.57a10 10 0 0 1-2.825.775 4.958 4.958 0 0 0 2.163-2.723 9.99 9.99 0 0 1-3.127 1.195 4.92 4.92 0 0 0-8.384 4.482A13.98 13.98 0 0 1 1.64 3.162a4.92 4.92 0 0 0 1.523 6.574 4.9 4.9 0 0 1-2.229-.616v.061a4.923 4.923 0 0 0 3.946 4.827 4.92 4.92 0 0 1-2.224.084 4.927 4.927 0 0 0 4.6 3.419A9.88 9.88 0 0 1 0 19.55a13.94 13.94 0 0 0 7.548 2.212c9.057 0 14.01-7.503 14.01-14.01 0-.213-.005-.425-.014-.636A10.01 10.01 0 0 0 24 4.59Z"/></svg></a>
+                        <a href="https://www.linkedin.com/in/jonathanrxu/" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 2H3.6C2.7 2 2 2.7 2 3.6v16.8c0 .9.7 1.6 1.6 1.6h16.8c.9 0 1.6-.7 1.6-1.6V3.6c0-.9-.7-1.6-1.6-1.6ZM8 19H5V9h3v10ZM6.5 7.6a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6ZM19 19h-3v-5.2c0-1.2 0-2.7-1.7-2.7s-2 1.3-2 2.6V19h-3V9h2.9v1.4h.1c.4-.8 1.4-1.7 2.9-1.7 3.1 0 3.8 2 3.8 4.6V19Z"/></svg></a>
+                        <a href="https://github.com/jonrxu" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.86c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.64-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.83c.85 0 1.71.11 2.51.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a>
+                    </nav>
                 </div>
             </div>
         </section>
@@ -239,6 +282,21 @@
                     <div class="publication-title"><a href="https://cis5550.seas.upenn.edu/" target="_blank" rel="noopener noreferrer">CIS5550 Internet & Web Systems</a></div>
                     <div class="publication-authors">Teaching Assistant, Fall 2025</div>
                     <div class="publication-authors">Head Teaching Assistant, Spring 2026</div>
+                </div>
+            </div>
+        </section>
+        <section id="thoughts">
+            <h4>Thoughts</h4>
+            <div class="publication">
+                <div class="publication-date">2026</div>
+                <div class="publication-content">
+                    <div class="publication-title">Biology's bitter lesson</div>
+                </div>
+            </div>
+            <div class="publication">
+                <div class="publication-date">2025</div>
+                <div class="publication-content">
+                    <div class="publication-title"><a href="writing/an-observation-on-self-play.html">An observation on self-play</a></div>
                 </div>
             </div>
         </section>
