@@ -80,6 +80,7 @@
             margin-top: 0.85em;
         }
         @media (max-width: 520px) {
+            body::before { display: none; }
             .intro {
                 flex-direction: column;
                 align-items: flex-start;
@@ -228,6 +229,9 @@
         }
         @media (prefers-color-scheme: dark) {
             .article-update::before { background: linear-gradient(to right, #292929 75%, transparent); }
+        }
+        @media (max-width: 520px) {
+            body { padding-left: 24px !important; }
         }
     </style>
 </head>

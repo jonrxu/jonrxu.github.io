@@ -80,6 +80,7 @@
             margin-top: 0.85em;
         }
         @media (max-width: 520px) {
+            body::before { display: none; }
             .intro {
                 flex-direction: column;
                 align-items: flex-start;
@@ -223,6 +224,9 @@
         .tweet-embed .twitter-tweet { margin: 0; }
         @media (prefers-color-scheme: dark) {
             .article-body > blockquote { border-left-color: #292929; color: #b7b7b7; }
+        }
+        @media (max-width: 520px) {
+            body { padding-left: 24px !important; }
         }
     </style>
 </head>
