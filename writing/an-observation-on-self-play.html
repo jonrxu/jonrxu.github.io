@@ -212,6 +212,23 @@
         @media (prefers-color-scheme: dark) {
             body::before { background: #292929; }
         }
+        .article-body .article-update {
+            position: relative;
+            margin-top: 40px;
+            padding-top: 24px;
+        }
+        .article-update::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, #e8e8e8 75%, transparent);
+        }
+        @media (prefers-color-scheme: dark) {
+            .article-update::before { background: linear-gradient(to right, #292929 75%, transparent); }
+        }
     </style>
 </head>
 <body class="instrument-sans-regular" style="max-width: 784px; margin: 0 auto; padding-left: 52px; padding-right: 52px; padding-top: 100px; padding-bottom: 100px;">
@@ -241,6 +258,7 @@
                 <p>So the obvious question: is self-play what he is working on now?</p>
                 <p>A lot of the story begins to makes sense if you suppose this is the case. His cryptic Twitter posts nodding at “a project that is very personally meaningful to me” and a “different mountain to climb.” The quirky NeurIPS slide. The emphasis on multiple scaling laws and data scarcity. His doctrine on the purity of RL and unsupervised learning. The prediction of self-awareness in future AIs.</p>
                 <p>Admittedly, this is a fairly romanticized hypothesis and there is generous room for error. But I think every researcher dreams of seeing their core instincts validated. Ilya has demonstrated <a href="https://thevarsity.ca/2010/10/25/neural-networking/">remarkable consistency</a> in his beliefs over the years, and he’s been right often enough that it no longer feels like mere coincidence. It would make sense for him to return to the questions he started with—this time, answering them at scale.</p>
+                <p class="article-update"><strong>Update (November 2025):</strong> As it turns out my guess was wrong (see <a href="https://www.youtube.com/watch?v=aR20FWCCjAs&amp;t=5426s" target="_blank" rel="noopener noreferrer">Dwarkesh podcast with Ilya</a>).</p>
             </div>
         </article>
     </main>
