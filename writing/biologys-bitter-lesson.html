@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biology's bitter lesson — Jonathan Xu</title>
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .instrument-sans-regular {
+            font-family: "Instrument Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 450;
+            font-style: normal;
+            font-variation-settings:
+                "wdth" 100;
+        }
+        html, body {
+            color: #111;
+            background: #fff;
+            font-family: "Instrument Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 450;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+            line-height: 1.68;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        p,
+        .publication-title,
+        .publication-authors {
+            font-family: "Instrument Sans", sans-serif;
+        }
+        h1 {
+            font-family: "Instrument Sans", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+            letter-spacing: -0.01em;
+            margin: 0 0 0 0;
+            font-size: clamp(24px, 4vw, 34px);
+        }
+        .subtitle {
+            margin: 0;
+            color: #777;
+            font-size: 0.95rem;
+        }
+        .intro {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+        .intro-photo {
+            flex: 0 0 33%;
+            max-width: 200px;
+            width: 33%;
+        }
+        .intro-photo img {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            object-position: center top;
+        }
+        .intro-text {
+            flex: 1;
+            min-width: 0;
+        }
+        .intro-text p {
+            margin: 0;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+        .intro-text p + p {
+            margin-top: 0.85em;
+        }
+        @media (max-width: 520px) {
+            .intro {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 28px;
+            }
+            .intro-photo {
+                flex: none;
+                width: 160px;
+                max-width: 160px;
+            }
+        }
+        h4 {
+            font-family: "IBM Plex Mono", monospace;
+            font-weight: 500;
+            font-style: normal;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin: 28px 0 16px 0;
+            font-size: 0.82rem;
+        }
+        a {
+            color: #111;
+            text-decoration: underline;
+            text-decoration-color: #dcdcdc;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+            transition: color 120ms ease, text-decoration-color 120ms ease;
+        }
+        a:hover { text-decoration-color: #111; }
+        a:focus-visible { outline: 2px solid #999; outline-offset: 2px; }
+        section {
+            margin-top: 18px;
+        }
+        /* Subtle section dividers */
+        section + section { position: relative; padding-top: 17px; }
+        section + section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, #e8e8e8 0%, #e8e8e8 75%, transparent 100%);
+            pointer-events: none;
+        }
+        section:has(+ section) { padding-bottom: 16px; }
+        /* Publication entries - date on left, paper on right */
+        .publication {
+            display: flex;
+            gap: 20px;
+            margin: 0 0 20px 0;
+            padding: 0;
+            text-indent: 0;
+        }
+        .publication-date {
+            font-family: "IBM Plex Mono", monospace;
+            font-weight: 500;
+            flex-shrink: 0;
+            width: 80px;
+            color: #666;
+            font-size: 0.82em;
+        }
+        .publication-content {
+            flex: 1;
+        }
+        .publication-title {
+            margin: 0 0 4px 0;
+            font-weight: 500;
+        }
+        .publication-authors {
+            margin: 0;
+            color: #666;
+            font-size: 0.78em;
+        }
+        .publication-venue {
+            margin: 2px 0 0 0;
+            color: #666;
+            font-size: 0.78em;
+            font-style: italic;
+        }
+        .author-self {
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+        }
+        .publication-title a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .publication-title a:hover {
+            text-decoration: underline;
+            text-decoration-color: #111;
+        }
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            html, body { background: #0e0e0e; color: #e7e7e7; }
+            a { color: #e7e7e7; text-decoration-color: #4a4a4a; }
+            a:hover { text-decoration-color: #e7e7e7; }
+            section + section::before { background: linear-gradient(to right, #292929 0%, #292929 75%, transparent 100%); }
+            .publication-date { color: #999; }
+            .publication-authors { color: #999; }
+            .publication-venue { color: #999; }
+            .subtitle { color: #999; }
+            .publication-title a:hover { text-decoration-color: #e7e7e7; }
+        }
+        .article-header { margin-bottom: 28px; }
+        .article-header .subtitle { margin-top: 12px; font-size: 0.82rem; }
+        .article-body p { margin: 0 0 1.15em; font-size: 0.92rem; }
+        .article-body { overflow-wrap: anywhere; }
+        .article-body figure { margin: 28px 0; }
+        .article-body figure a { display: block; }
+        .article-body img { display: block; width: 100%; height: auto; }
+        body { position: relative; box-sizing: border-box; width: 100%; }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            width: 1px;
+            background: #e8e8e8;
+            -webkit-mask-image: linear-gradient(to bottom, transparent, #000 80px, #000 calc(100% - 80px), transparent);
+            mask-image: linear-gradient(to bottom, transparent, #000 80px, #000 calc(100% - 80px), transparent);
+            pointer-events: none;
+        }
+        @media (max-width: 740px) {
+            body { padding-left: 52px !important; padding-right: 24px !important; }
+        }
+        @media (prefers-color-scheme: dark) {
+            body::before { background: #292929; }
+        }
+        .article-body > blockquote {
+            margin: 24px 0;
+            padding: 4px 0 4px 20px;
+            border-left: 2px solid #e8e8e8;
+            color: #555;
+        }
+        .article-body > blockquote p:last-child { margin-bottom: 0; }
+        .tweet-embed { width: 480px; max-width: 100%; margin: 28px auto 0; }
+        .tweet-embed .twitter-tweet { margin: 0; }
+        @media (prefers-color-scheme: dark) {
+            .article-body > blockquote { border-left-color: #292929; color: #b7b7b7; }
+        }
+    </style>
+</head>
+<body class="instrument-sans-regular" style="max-width: 784px; margin: 0 auto; padding-left: 52px; padding-right: 52px; padding-top: 100px; padding-bottom: 100px;">
+    <main>
+        <article>
+            <header class="article-header">
+                <h1>Biology's bitter lesson</h1>
+                <p class="subtitle"><time datetime="2026-10-10">October 10, 2026</time></p>
+            </header>
+            <div class="article-body">
+<p>Richard Sutton's <a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">Bitter Lesson</a> has been evangelized so much in Silicon Valley to the point of cliché. Yet outside of the Twitterverse of pundits and VCs, you often find the bitter truth has yet to truly sink in. The lesson's apparent simplicity belies how difficult it is to actually put into practice, as people continue to mistake incremental progress for methods that truly scale with compute.</p>
+<blockquote>
+<p>The biggest lesson that can be read from 70 years of AI research is that general methods that leverage computation are ultimately the most effective, and by a large margin. [...] <strong>Most AI research has been conducted as if the computation available to the agent were constant</strong> [...]. Seeking an improvement that makes a difference in the shorter term, researchers seek to leverage their human knowledge of the domain, but the only thing that matters in the long run is the <strong>leveraging of computation</strong>.</p>
+</blockquote>
+<p>As a first-year comp bio PhD student, reflecting on this made me think a lot about how research is done in biology -- in some sense the least Bitter Lesson-pilled of all domains. Much of the scientific process feels artisanal: researchers develop hypotheses, carefully design experiments, and interpret results. While this approach has produced extraordinary breakthroughs, its pace is still largely constrained by human judgment and experimental labor. Many of the most important discoveries like CRISPR have emerged almost by accident, stumbled upon by lucky or especially shrewd researchers.</p>
+<p>Because of this, biology often feels like exploring a maze: each interesting path branches into many others, rewarding deeper specialization and incremental progress within shallow subdomains, rather than general methods that scale across problems. The consensus today in the AIxBio field is that we should invest more resources in pushing deeper into the maze, replacing humans with AI agents that can work many times faster. But few stop to zoom out and ask whether the maze is even the right place to look.</p>
+<p>For Bitter Lesson pundits, protein models like AlphaFold or ESM represent a major triumph. Train on vast databases of protein sequences and structures and you get models that can predict how proteins fold or which amino acids fit a given sequence. But I would argue these models, like LLMs trained on the Internet, have yet to fully embrace the Bitter Lesson. They learn the paths through the maze that evolution has already traced, rather than asking how the maze itself was designed. This works remarkably well until you ask them to venture beyond the distribution they were trained on. And the space of possible proteins (or molecular structures), for that matter, is quite, quite vast.</p>
+<p>I saw this firsthand in experiments I ran this week. With directed evolution, we engineered novel iGeoCas9 variants that beat the original by swapping a bunch of amino acids in a particular loop. Yet ESM-2 consistently assigns low likelihoods to these beneficial mutations, and even fine-tuning on 80% of our experimental data fails to produce good predictions on the remaining 20%. The model favors what nature has already produced, but struggles to recognize what works beyond it.</p>
+<blockquote>
+<p>In computer vision, there has been a similar pattern. Early methods conceived of vision as searching for edges, or generalized cylinders, or in terms of SIFT features. But today all this is discarded. Modern deep-learning neural networks use only the notions of convolution and certain kinds of invariances, and perform much better.</p>
+</blockquote>
+<p>A model trained only on things that could previously fly might insist flight requires feathers or a beak, or other merely incidental evolutionary traits. But planes today are not built by imitating birds; rather, they're built by understanding the fundamental laws of physics and engineering around them. For centuries, inventors attempted to design flying machines by replicating the way that birds flew, but it was only through the Wright brothers understanding aerodynamics that flight was finally cracked.</p>
+<p>Biologists often act as though biology has no such organizing principles. But bio is not exempt from physics any more than airplanes are. We have a ground truth to work from: atoms and the equations that describe their interactions. Through simulation, we can recreate the molecular machinery of life and probe how it works. Rather than blindly mutating proteins and selecting what works, we can understand <em>what</em> a variant does and <em>why</em> it works, something a protein model will never be able to conclusively tell us.</p>
+<p>One thing I've learned from my CS curriculum in college is that computer scientists like to ask is what would happen when we assume a <em>sufficiently</em> good thing is said to exist. A sufficiently accurate simulation could, in principle, model any biological system. Biology’s complexity arises from simpler parts interacting chaotically under the same physical rules. If we can capture those interactions faithfully, modeling how they work together just becomes a question of scale and compute.</p>
+<blockquote>
+<p>One thing that should be learned from the bitter lesson is the great power of general purpose methods, of methods that continue to scale with increased computation even as the available computation becomes very great. The two methods that seem to scale arbitrarily in this way are search and learning.</p>
+</blockquote>
+<p>Simulations are very computationally expensive. Designing entire simulations of complex enzymes in silico is no easy task, and very demanding on GPUs. But as compute scales and becomes more abundant, I believe this will ultimately be the easier path than relying on painstakingly hand-crafted experiments, forever bottlenecked by the hours you have in a day and the number of pipette stations in a lab. The Bitter Lesson does <em>not</em> say that the computational approach will be easier at first. It merely says that you must have faith in the ability for compute to win out over human-designed rules and processes in the long run. Exponentials always look slow in the beginning.</p>
+<p>Another intrinsically valuable property of simulations is their ability to generate meaningful data from computation alone. This is exceptionally rare in the ML world, where models are usually constrained by availability of real-world data and frontier labs pay top dollar for high-quality human datasets. But for physics-based simulation, this is precisely the appeal: huge supercomputers can run intensive quantum-mechanical calculations to produce extremely accurate descriptions of molecular interactions. Neural network-based approaches like MLIPs can then train on this data, approximating those calculations at a fraction of the cost and enabling larger, longer simulations with shocking generalization. Compute itself becomes the engine of progress, just as the Bitter Lesson so desires.</p>
+<p>Ultimately as compute scales, so does the search space we can explore. We could test billions of molecular configurations and protein variants in silico, on a scale unimaginable in a wet lab. We could learn the interactions that give rise to molecular function and build a world model of molecular biophysics grounded in first principles. From there, we could design entirely new molecules nature has never seen, refine them in simulation, and finally bring them into the real world ... the Drexlerian pipe dream. This could revolutionize medicine, energy, agriculture, and countless other fields, harnessing the power of scalable computation for social good.</p>
+<blockquote>
+<p>The [...] general point to be learned from the bitter lesson is that the actual contents of <strong>minds are tremendously, irredeemably complex</strong> [...] They are not what should be built in, as their complexity is endless; instead we should build in only the <strong>meta-methods that can find and capture this arbitrary complexity.</strong> [...] We want AI agents that can discover like we can, not which contain what we have discovered. <strong>Building in our discoveries only makes it harder to see how the discovering process can be done.</strong></p>
+</blockquote>
+<p>Maybe this is true not only of minds but of biology as well. Biology is irredeemably complex, full of mysteries that no amount of human intuition could ever fully unravel. Rather than trying to understand it all by hand, we should seek the fundamental rules that give rise to this complexity, the physical laws that govern all proteins, genes, and life. Through simulation, search, and learning, we can explore possibilities far beyond what humanity has already discovered. We could transform biology from a game of guesswork into a discipline of engineering.</p>
+
+<div class="tweet-embed">
+<blockquote class="twitter-tweet" data-dnt="true" data-width="480" data-align="center"><p lang="en" dir="ltr">protein design is deprecated. please migrate to molecular machine design</p>-- Theo Jala (@theo_jala) <a href="https://x.com/theo_jala/status/2103128710425825373?ref_src=twsrc%5Etfw">September 24, 2026</a></blockquote>
+
+</div>
+            </div>
+        </article>
+    </main>
+    <script>
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.querySelector('.twitter-tweet').setAttribute('data-theme', 'dark');
+        }
+    </script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+</html>
