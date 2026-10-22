@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Xu</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        :root {
+            color: #27272a;
+            font-family: sans-serif;
+        }
+
+        body {
+            max-width: 550px;
+            margin: 0 auto;
+            padding: 72px 40px 56px;
+        }
+
+        h1, p { margin: 0; }
+
+        h1 {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 28px;
+            letter-spacing: -0.2px;
+        }
+
+        .site-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+
+        p {
+            font-size: 15px;
+            line-height: 20px;
+            letter-spacing: -0.2px;
+        }
+
+        .bio {
+            margin-top: 32px;
+        }
+
+        .bio a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .bio a:hover,
+        .bio a:focus-visible {
+            text-decoration: underline;
+        }
+
+        .animation {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin-top: 24px;
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+            font-size: 12px;
+        }
+
+        .contact-links a {
+            color: #a1a1aa;
+            text-decoration: none;
+        }
+
+        .contact-links a:hover,
+        .contact-links a:focus-visible {
+            color: #71717a;
+            text-decoration: underline;
+        }
+
+        .email {
+            margin-left: 24px;
+            color: #a1a1aa;
+            font-size: 12px;
+            text-align: right;
+        }
+
+        @media (max-width: 520px) {
+            body { padding: 72px 24px 56px; }
+        }
+
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>Jonathan Xu</h1>
+        <span class="email">hello@jonrxu.com</span>
+    </header>
+    <p class="bio">I am a PhD student at the University of Pennsylvania. My research uses ML-driven molecular simulations to make biology verifiable at scale.</p>
+    <img class="animation" src="animation.gif" alt="Molecular simulation animation" draggable="false">
+    <nav class="contact-links" aria-label="Contact links">
+        <a href="https://scholar.google.com/citations?user=D8q1WzAAAAAJ" target="_blank" rel="noopener noreferrer">Scholar</a>
+        <a href="https://www.linkedin.com/in/jonathanrxu/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/jonrxu" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </nav>
+</body>
+</html>
